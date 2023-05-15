@@ -29,5 +29,11 @@ namespace GPSS_IDZ
         {
 
         }
+
+        private void Mo_set_1(int num)
+        {
+
+        }
+
     }
 }
