@@ -35,7 +35,7 @@ namespace GPSS_IDZ
         private void Calculation(object sender, RoutedEventArgs e)
         {
             double Mo1, Mo2, a, S1, bd, ce, Mo1DivMo2, PointsCount;
-
+            methods.LogOut = "";
             try
             {
                 bd = (double)start.Text.EvalNumerical();

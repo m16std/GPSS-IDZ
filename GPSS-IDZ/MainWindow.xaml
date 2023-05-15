@@ -96,13 +96,13 @@
         <Label Content="Количество точек:" HorizontalAlignment="Left" Margin="39,573,0,0" VerticalAlignment="Top"/>
 
         <Button Content="Расчет" Click="Calculation" HorizontalAlignment="Left" Height="20" Margin="240,10,0,0" VerticalAlignment="Top" Width="150" Background="White" />
-        <TextBox x:Name="Mo1TB" HorizontalAlignment="Left" Height="22" Margin="240,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <TextBox x:Name="Mo2TB" HorizontalAlignment="Left" Height="22" Margin="332,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <TextBox x:Name="MoDivTB" HorizontalAlignment="Left" Height="22" Margin="332,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
+        <TextBox x:Name="Mo1TB" HorizontalAlignment="Left" Height="22" Margin="240,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58" IsReadOnly="True"/>
+        <TextBox x:Name="Mo2TB" HorizontalAlignment="Left" Height="22" Margin="332,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58" IsReadOnly="True"/>
+        <TextBox x:Name="MoDivTB" HorizontalAlignment="Left" Height="22" Margin="332,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58" IsReadOnly="True"/>
         <Label Content="Mo1" HorizontalAlignment="Left" Margin="252,71,0,0" VerticalAlignment="Top"/>
         <Label Content="Mo2" HorizontalAlignment="Left" Margin="344,71,0,0" VerticalAlignment="Top"/>
         <Label Content="Mo1/Mo2:" HorizontalAlignment="Left" Margin="259,102,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="aTB" HorizontalAlignment="Left" Height="22" Margin="332,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
+        <TextBox x:Name="aTB" HorizontalAlignment="Left" Height="22" Margin="332,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58" IsReadOnly="True"/>
         <Label Content="a:" HorizontalAlignment="Left" Margin="306,142,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

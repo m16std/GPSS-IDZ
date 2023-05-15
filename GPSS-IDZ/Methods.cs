@@ -16,18 +16,30 @@ namespace GPSS_IDZ
         public string LogOut = "";
         public void PrintP2(double a, double b, double c, double d, int variant, int new_function, string fx, double bd, double ce)
         {
+            if (new_function == 1)
+            {
+                double P = 0, step = 0.01, corect_coef = 1;
+                for (double xi = bd + 0.0001; xi < ce; xi += step)
+                {
+                    P += (double)fx.Substitute("a", a).Substitute("b", b).Substitute("c", c).Substitute("d", d).Substitute("x", xi).EvalNumerical() * step;
+                }
+                corect_coef = 1 / P;
+                P = 0;
+                for (double xi = bd + 0.0001; xi < ce; xi += step)
+                {
+                    if ((xi % 1) < step / 2 || (xi % 1) > 1 - step / 2)
+                        LogOut += Math.Round(P * corect_coef, 3) + ", " + Math.Round(xi) + "/\n";
+                    P += (double)fx.Substitute("a", a).Substitute("b", b).Substitute("c", c).Substitute("d", d).Substitute("x", xi).EvalNumerical() * step;
+                }
+                LogOut += 1 + ", " + Math.Round(ce) + "/\n";
+                LogOut += "\n";
+                return;
+            }
+
             a = Math.Round(a * 100) / 100;
             b = Math.Round(b * 100) / 100;
             c = Math.Round(c * 100) / 100;
             d = Math.Round(d * 100) / 100;
-
-            if (new_function == 1)
-            {
-                for (double xi = bd; xi < ce; xi += 1)
-                {
-                    LogOut += Math.Round((double)fx.Substitute("a", a).Substitute("b", b).Substitute("c", c).Substitute("d", d).Substitute("x", xi).EvalNumerical(), 3) + ", " + Math.Round(xi) + "/\n";
-                }
-            }
 
             if (variant == 1)//A1 A1 a1 a2
                 LogOut += "BETA(1, " + a + ", " + b + ", " + c + ", " + d + ")";
@@ -195,7 +207,7 @@ namespace GPSS_IDZ
             for (double i = d; i < e + step; i += step)
             {
                 if ((i % 1) < step / 2 || (i % 1) > 1 - step / 2)
-                    LogOut += Math.Round(i, 1) + ", " + Math.Round(P, 3) + "/\n";
+                    LogOut += Math.Round(P, 3) + ", " + Math.Round(i) + "/\n";
                 P += GetP1(i, d, e, d1, e1, k1, Y1) * step / S1;
             }
 
